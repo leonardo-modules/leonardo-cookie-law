@@ -1,10 +1,809 @@
 {% load i18n %}
-
-<div id="CookielawBanner">
-    <div class="container">
-        <h6>{% trans "COOKIE_INFO_HEADER" %}</h6>
-        <p>
-            <a class="btn btn-primary pull-right" href="javascript:Cookielaw.createCookielawCookie();">{% trans "COOKIE_INFO_OK" %}</a>
+<style type="text/css">
+{% if widget.style == 'dark_bottom' %}
+.cc_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px
+}
+.cc_container .cc_btn {
+    padding: 8px 10px;
+    background-color: #f1d600;
+    cursor: pointer;
+    transition: font-size 200ms;
+    text-align: center;
+    font-size: 0.6em;
+    display: block;
+    width: 33%;
+    margin-left: 10px;
+    float: right;
+    max-width: 120px
+}
+.cc_container .cc_message {
+    transition: font-size 200ms;
+    font-size: 0.6em;
+    display: block
+}
+@media screen and (min-width:500px) {
+    .cc_container .cc_btn {
+        font-size: 0.8em
+    }
+    .cc_container .cc_message {
+        margin-top: 0.5em;
+        font-size: 0.8em
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding: 15px 30px 15px
+    }
+    .cc_container .cc_btn {
+        font-size: 1em;
+        padding: 8px 15px
+    }
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+@media screen and (min-width:992px) {
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+.cc_container {
+    background: #222;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #fff;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #b2f7ff
+}
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(66px);
+        transform: translateY(66px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(66px);
+        -ms-transform: translateY(66px);
+        transform: translateY(66px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+.cc_container, .cc_message, .cc_btn {
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    -webkit-animation-name: slideUp;
+    animation-name: slideUp
+}
+{% elif widget.style == 'dark_floating_tada' %}
+.cc_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px 15px 50px
+}
+.cc_container .cc_btn {
+    padding: 8px 16px;
+    background-color: #f1d600;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    text-align: center
+}
+@media screen and (min-width:500px) {
+    .cc_container {
+        left: initial;
+        right: 20px;
+        bottom: 20px;
+        width: 300px;
+        padding-bottom: 77px
+    }
+    .cc_container .cc_btn {
+        right: 15px;
+        bottom: 37px
+    }
+    .cc_container .cc_logo {
+        display: block;
+        position: absolute;
+        bottom: 8px;
+        left: calc(50% - 50px)
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding-bottom: 87px
+    }
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+.cc_container {
+    background: #222;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #fff;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #b2f7ff
+}
+@-webkit-keyframes tada {
+    0% {
+        -webkit-transform: scale(1)
+    }
+    10%, 20% {
+        -webkit-transform: scale(0.9) rotate(-3deg)
+    }
+    30%, 50%, 70%, 90% {
+        -webkit-transform: scale(1.1) rotate(3deg)
+    }
+    40%, 60%, 80% {
+        -webkit-transform: scale(1.1) rotate(-3deg)
+    }
+    100% {
+        -webkit-transform: scale(1) rotate(0)
+    }
+}
+@-moz-keyframes tada {
+    0% {
+        -moz-transform: scale(1)
+    }
+    10%, 20% {
+        -moz-transform: scale(0.9) rotate(-3deg)
+    }
+    30%, 50%, 70%, 90% {
+        -moz-transform: scale(1.1) rotate(3deg)
+    }
+    40%, 60%, 80% {
+        -moz-transform: scale(1.1) rotate(-3deg)
+    }
+    100% {
+        -moz-transform: scale(1) rotate(0)
+    }
+}
+@-o-keyframes tada {
+    0% {
+        -o-transform: scale(1)
+    }
+    10%, 20% {
+        -o-transform: scale(0.9) rotate(-3deg)
+    }
+    30%, 50%, 70%, 90% {
+        -o-transform: scale(1.1) rotate(3deg)
+    }
+    40%, 60%, 80% {
+        -o-transform: scale(1.1) rotate(-3deg)
+    }
+    100% {
+        -o-transform: scale(1) rotate(0)
+    }
+}
+@keyframes tada {
+    0% {
+        transform: scale(1)
+    }
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg)
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale(1.1) rotate(3deg)
+    }
+    40%, 60%, 80% {
+        transform: scale(1.1) rotate(-3deg)
+    }
+    100% {
+        transform: scale(1) rotate(0)
+    }
+}
+.cc_container {
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: tada;
+    -moz-animation-name: tada;
+    -o-animation-name: tada;
+    animation-name: tada
+}
+{% elif widget.style == 'dark_floating' %}
+.cc_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px 15px 50px
+}
+.cc_container .cc_btn {
+    padding: 8px 16px;
+    background-color: #f1d600;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    text-align: center
+}
+@media screen and (min-width:500px) {
+    .cc_container {
+        left: initial;
+        right: 20px;
+        bottom: 20px;
+        width: 300px;
+        padding-bottom: 77px
+    }
+    .cc_container .cc_btn {
+        right: 15px;
+        bottom: 37px
+    }
+    .cc_container .cc_logo {
+        display: block;
+        position: absolute;
+        bottom: 8px;
+        left: calc(50% - 50px)
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding-bottom: 87px
+    }
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+.cc_container {
+    background: #222;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #fff;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #b2f7ff
+}
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+.cc_container {
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+{% elif widget.style == 'dark_inline' %}
+.cc_container {
+    overflow: hidden;
+    padding: 10px
+}
+.cc_container .cc_btn {
+    padding: 8px 10px;
+    background-color: #f1d600;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 33%;
+    margin-left: 10px;
+    float: right;
+    max-width: 120px
+}
+.cc_container .cc_message {
+    display: block
+}
+@media screen and (min-width:500px) {
+    .cc_container .cc_message {
+        margin-top: 0.5em
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding: 15px 30px 15px
+    }
+    .cc_container .cc_btn {
+        padding: 8px 15px
+    }
+}
+.cc_container {
+    background: #222;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #fff;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #b2f7ff
+}
+{% elif widget.style == 'dark_top' %}
+.cc_banner-wrapper {
+    height: 66px
+}
+.cc_container {
+    padding: 15px 15px 15px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0
+}
+.cc_container .cc_btn {
+    padding: 8px 10px;
+    background-color: #f1d600;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 33%;
+    margin-left: 10px;
+    float: right;
+    max-width: 120px
+}
+.cc_container .cc_message {
+    display: block
+}
+@media screen and (min-width:500px) {
+    .cc_container .cc_message {
+        margin-top: 0.5em
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding: 15px 30px 15px
+    }
+    .cc_container .cc_btn {
+        padding: 8px 15px
+    }
+}
+.cc_container {
+    background: #222;
+    color: #fff;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #fff;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #b2f7ff
+}
+@-webkit-keyframes slideDown {
+    0% {
+        margin-top: -66px
+    }
+    100% {
+        margin-top: 0
+    }
+}
+@keyframes slideDown {
+    0% {
+        margin-top: -66px
+    }
+    100% {
+        margin-top: 0px
+    }
+}
+@-webkit-keyframes growDown {
+    0% {
+        height: 0
+    }
+    100% {
+        height: 66px
+    }
+}
+@keyframes growDown {
+    0% {
+        height: 0
+    }
+    100% {
+        height: 66px
+    }
+}
+.cc_container {
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-name: slideDown;
+    animation-name: slideDown
+}
+.cc_banner-wrapper {
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-name: growDown;
+    animation-name: growDown
+}
+{% elif widget.style == 'light_bottom' %}
+.cc_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px
+}
+.cc_container .cc_btn {
+    padding: 8px 10px;
+    background-color: #f1d600;
+    cursor: pointer;
+    transition: font-size 200ms;
+    text-align: center;
+    font-size: 0.6em;
+    display: block;
+    width: 33%;
+    margin-left: 10px;
+    float: right;
+    max-width: 120px
+}
+.cc_container .cc_message {
+    transition: font-size 200ms;
+    font-size: 0.6em;
+    display: block
+}
+@media screen and (min-width:500px) {
+    .cc_container .cc_btn {
+        font-size: 0.8em
+    }
+    .cc_container .cc_message {
+        margin-top: 0.5em;
+        font-size: 0.8em
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding: 15px 30px 15px
+    }
+    .cc_container .cc_btn {
+        font-size: 1em;
+        padding: 8px 15px
+    }
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+@media screen and (min-width:992px) {
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+.cc_container {
+    background: #fff;
+    color: #999;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box;
+    border: 1px solid #ccc
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #d7bf00;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #555
+}
+@-webkit-keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(66px);
+        transform: translateY(66px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+@keyframes slideUp {
+    0% {
+        -webkit-transform: translateY(66px);
+        -ms-transform: translateY(66px);
+        transform: translateY(66px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+.cc_container, .cc_message, .cc_btn {
+    animation-duration: 0.8s;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    -webkit-animation-name: slideUp;
+    animation-name: slideUp
+}
+{% elif widget.style == 'light_floating' %}
+.cc_container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    padding: 10px 15px 50px
+}
+.cc_container .cc_btn {
+    padding: 8px 16px;
+    background-color: #f1d600;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    right: 15px;
+    text-align: center
+}
+@media screen and (min-width:500px) {
+    .cc_container {
+        left: initial;
+        right: 20px;
+        bottom: 20px;
+        width: 300px;
+        padding-bottom: 77px
+    }
+    .cc_container .cc_btn {
+        right: 15px;
+        bottom: 37px
+    }
+    .cc_container .cc_logo {
+        display: block;
+        position: absolute;
+        bottom: 8px;
+        left: calc(50% - 50px)
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding-bottom: 87px
+    }
+    .cc_container .cc_message {
+        font-size: 1em
+    }
+}
+.cc_container {
+    background: #fff;
+    color: #999;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box;
+    border: 1px solid #ccc
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #d7bf00;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #555
+}
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        transform: translateX(20px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0)
+    }
+}
+.cc_container {
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight
+}
+@media screen and (min-width:500px) {
+    .cc_container {
+        border-radius: 5px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2)
+    }
+}
+{% elif widget.style == 'light_top' %}
+.cc_banner-wrapper {
+    height: 66px
+}
+.cc_container {
+    padding: 15px 15px 15px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0
+}
+.cc_container .cc_btn {
+    padding: 8px 10px;
+    background-color: #f1d600;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 33%;
+    margin-left: 10px;
+    float: right;
+    max-width: 120px
+}
+.cc_container .cc_message {
+    display: block
+}
+@media screen and (min-width:500px) {
+    .cc_container .cc_message {
+        margin-top: 0.5em
+    }
+}
+@media screen and (min-width:768px) {
+    .cc_container {
+        padding: 15px 30px 15px
+    }
+    .cc_container .cc_btn {
+        padding: 8px 15px
+    }
+}
+.cc_container {
+    background: #fff;
+    color: #999;
+    font-size: 17px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+    box-sizing: border-box;
+    border: 1px solid #ccc
+}
+.cc_container .cc_btn:hover, .cc_container .cc_btn:active {
+    background-color: #d7bf00;
+    color: #000
+}
+.cc_container a:hover, .cc_container a:active {
+    color: #555
+}
+@-webkit-keyframes slideDown {
+    0% {
+        margin-top: -66px
+    }
+    100% {
+        margin-top: 0
+    }
+}
+@keyframes slideDown {
+    0% {
+        margin-top: -66px
+    }
+    100% {
+        margin-top: 0px
+    }
+}
+@-webkit-keyframes growDown {
+    0% {
+        height: 0
+    }
+    100% {
+        height: 66px
+    }
+}
+@keyframes growDown {
+    0% {
+        height: 0
+    }
+    100% {
+        height: 66px
+    }
+}
+.cc_container {
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-name: slideDown;
+    animation-name: slideDown
+}
+.cc_banner-wrapper {
+    -webkit-animation-duration: 0.8s;
+    -moz-animation-duration: 0.8s;
+    -o-animation-duration: 0.8s;
+    animation-duration: 0.8s;
+    -webkit-animation-name: growDown;
+    animation-name: growDown
+}
+{% endif %}
+</style>
+<div id="CookielawBanner" class="cc_banner-wrapper">
+    <div class="cc_banner cc_container cc_container--open">
+        <p class="cc_message">
+            <a class="cc_btn" href="javascript:Cookielaw.createCookielawCookie();">{% trans "COOKIE_INFO_OK" %}</a>
             {% trans "COOKIE_INFO_PARA" %}
         </p>
     </div>

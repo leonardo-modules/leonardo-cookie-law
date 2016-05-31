@@ -15,6 +15,10 @@ LEONARDO_JS_FILES = [
     'cookielaw/js/cookielaw.js'
 ]
 
+LEONARDO_CSS_FILES = [
+    'cookielaw/default.css'
+]
+
 LEONARDO_OPTGROUP = 'Cookie Law'
 
 LEONARDO_WIDGETS = [
