@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-12 15:26+0000\n"
+"POT-Creation-Date: 2016-08-09 17:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/cookielaw/banner.html:5
-msgid "COOKIE_INFO_HEADER"
-msgstr "Cookies disclaimer"
-
-#: templates/cookielaw/banner.html:7
+#: templates/cookielaw/banner.html:806
 msgid "COOKIE_INFO_OK"
-msgstr "I agree"
+msgstr "I Agree"
 
-#: templates/cookielaw/banner.html:8
+#: templates/cookielaw/banner.html:807
 msgid "COOKIE_INFO_PARA"
-msgstr """Při poskytování služeb nám pomáhají cookies. Používáním webu s tím vyjadřujete souhlas."""
+msgstr "We use cookies to ensure that we give you the best experience on our website. By using this website you acknowledge, that you are willing to receive all cookies from this website."
 
-#: widget/cookielaw/models.py:12 widget/cookielaw/models.py:13
+#: widget/cookielaw/models.py:8
+msgid "Dark bottom"
+msgstr ""
+
+#: widget/cookielaw/models.py:9
+msgid "Dark floating with tada effect"
+msgstr ""
+
+#: widget/cookielaw/models.py:10
+msgid "Dark floating"
+msgstr ""
+
+#: widget/cookielaw/models.py:11
+msgid "Dark inline"
+msgstr ""
+
+#: widget/cookielaw/models.py:12
+msgid "Dark top"
+msgstr ""
+
+#: widget/cookielaw/models.py:13
+msgid "Light bottom"
+msgstr ""
+
+#: widget/cookielaw/models.py:14
+msgid "Light floating"
+msgstr ""
+
+#: widget/cookielaw/models.py:15
+msgid "Light top"
+msgstr ""
+
+#: widget/cookielaw/models.py:20
+msgid "Style and position"
+msgstr ""
+
+#: widget/cookielaw/models.py:24 widget/cookielaw/models.py:25
 msgid "Cookie Law"
 msgstr ""
