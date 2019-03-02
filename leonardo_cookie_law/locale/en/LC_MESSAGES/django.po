@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-09 17:55+0200\n"
+"POT-Creation-Date: 2019-03-02 18:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,13 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/cookielaw/banner.html:806
+#: templates/cookielaw/banner.html:804
+msgid "For more information visit"
+msgstr ""
+
+#: templates/cookielaw/banner.html:805
+msgid "site info"
+msgstr ""
+
+#: templates/cookielaw/banner.html:811
 msgid "COOKIE_INFO_OK"
 msgstr "I Agree"
 
-#: templates/cookielaw/banner.html:807
+#: templates/cookielaw/banner.html:812
 msgid "COOKIE_INFO_PARA"
-msgstr "We use cookies to ensure that we give you the best experience on our website. By using this website you acknowledge, that you are willing to receive all cookies from this website."
+msgstr ""
+"We use cookies to ensure that we give you the best experience on our "
+"website. By using this website you acknowledge, that you are willing to "
+"receive all cookies from this website."
 
 #: widget/cookielaw/models.py:8
 msgid "Dark bottom"
@@ -61,6 +72,10 @@ msgstr ""
 msgid "Style and position"
 msgstr ""
 
-#: widget/cookielaw/models.py:24 widget/cookielaw/models.py:25
+#: widget/cookielaw/models.py:21
+msgid "Link to site info"
+msgstr ""
+
+#: widget/cookielaw/models.py:25 widget/cookielaw/models.py:26
 msgid "Cookie Law"
 msgstr ""
