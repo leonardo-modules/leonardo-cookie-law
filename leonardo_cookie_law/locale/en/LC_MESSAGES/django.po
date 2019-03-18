@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-02 18:58+0100\n"
+"POT-Creation-Date: 2019-03-18 15:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,11 +25,11 @@ msgstr ""
 msgid "site info"
 msgstr ""
 
-#: templates/cookielaw/banner.html:811
+#: templates/cookielaw/banner.html:839
 msgid "COOKIE_INFO_OK"
 msgstr "I Agree"
 
-#: templates/cookielaw/banner.html:812
+#: templates/cookielaw/banner.html:840
 msgid "COOKIE_INFO_PARA"
 msgstr ""
 "We use cookies to ensure that we give you the best experience on our "
@@ -72,10 +72,6 @@ msgstr ""
 msgid "Style and position"
 msgstr ""
 
-#: widget/cookielaw/models.py:21
-msgid "Link to site info"
-msgstr ""
-
-#: widget/cookielaw/models.py:25 widget/cookielaw/models.py:26
+#: widget/cookielaw/models.py:24 widget/cookielaw/models.py:25
 msgid "Cookie Law"
 msgstr ""

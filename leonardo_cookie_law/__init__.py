@@ -25,6 +25,10 @@ LEONARDO_WIDGETS = [
     CookieLawWidget,
 ]
 
+LEONARDO_CONFIG = {
+    'SITE_INFO_URL': ('', 'URL to site information.'),
+}
+
 
 class Config(AppConfig):
     name = 'leonardo_cookie_law'
