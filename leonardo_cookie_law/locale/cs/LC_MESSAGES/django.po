@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-02 18:58+0100\n"
+"POT-Creation-Date: 2019-03-18 15:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,16 +26,16 @@ msgstr "Pro více informací navšivte"
 msgid "site info"
 msgstr "informace o webu"
 
-#: templates/cookielaw/banner.html:811
+#: templates/cookielaw/banner.html:839
 msgid "COOKIE_INFO_OK"
 msgstr "Souhlasím"
 
-#: templates/cookielaw/banner.html:812
+#: templates/cookielaw/banner.html:840
 msgid "COOKIE_INFO_PARA"
 msgstr ""
 "Tyto webové stránky používají k poskytování služeb a analýze návštěvnosti "
 "soubory cookie. Používáním těchto webových stránek souhlasíte s použitím "
-"souborů cookie. Více informací najdete"
+"souborů cookie."
 
 #: widget/cookielaw/models.py:8
 msgid "Dark bottom"
@@ -73,10 +73,6 @@ msgstr ""
 msgid "Style and position"
 msgstr ""
 
-#: widget/cookielaw/models.py:21
-msgid "Link to site info"
-msgstr ""
-
-#: widget/cookielaw/models.py:25 widget/cookielaw/models.py:26
+#: widget/cookielaw/models.py:24 widget/cookielaw/models.py:25
 msgid "Cookie Law"
 msgstr ""

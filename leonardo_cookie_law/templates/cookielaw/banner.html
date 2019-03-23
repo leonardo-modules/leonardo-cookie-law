@@ -803,6 +803,7 @@
 
 {% trans "For more information visit" as more_info %}
 {% trans "site info" as site_info %}
+
 <script type="text/javascript">
 var CookielawExt = {
 
@@ -836,7 +837,10 @@ var CookielawExt = {
     <div class="cc_banner cc_container cc_container--open">
         <p class="cc_message">
             <a class="cc_btn" href="javascript:CookielawExt.createCookielawCookie();">{% trans "COOKIE_INFO_OK" %}</a>
-            {% trans "COOKIE_INFO_PARA" %}{{ more_info }} <a href="{{ widget.site_info_url }}">{{ site_info }}</a>.
+            {% trans "COOKIE_INFO_PARA" %}
+            {% if request.LEONARDO_CONFIG.SITE_INFO_URL != "" %}
+            {{ more_info }} <a href="{{ request.LEONARDO_CONFIG.SITE_INFO_URL }}">{{ site_info }}</a>.
+            {% endif %}
         </p>
     </div>
 </div>

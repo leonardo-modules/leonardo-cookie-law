@@ -18,7 +18,6 @@ STYLE_CHOICES = (
 class CookieLawWidget(Widget):
 
     style = models.CharField(verbose_name=_("Style and position"), max_length=255, blank=True, choices=STYLE_CHOICES)
-    site_info_url = models.CharField(verbose_name=_("Link to site info"), max_length=255, default='/site-info/')
 
     class Meta:
         abstract = True
